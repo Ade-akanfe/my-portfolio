@@ -171,7 +171,7 @@ export default function HeroClient() {
 
             {/* Text content */}
             <div className="absolute left-0 right-0 z-20 pointer-events-none
-                            top-[calc(5vh+200px)] sm:top-[calc(5vh+180px)] md:top-[20%] 2xl:top-[22%]">
+                            top-[120px] sm:top-[160px] md:top-[20%] 2xl:top-[22%]">
                 <div className="text-center pointer-events-auto px-6 sm:px-8">
                     <h1
                         ref={welcomeRef}

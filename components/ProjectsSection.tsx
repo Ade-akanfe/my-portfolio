@@ -243,8 +243,8 @@ export default function ProjectsSection() {
                             className="main-project-card group relative flex flex-col space-y-8 cursor-pointer"
                         >
                             {/* Image Container - Top (Padded Box Style) */}
-                            <div className="relative aspect-16/10 rounded-[40px] bg-white shadow-xl shadow-gray-200/50 shrink-0 p-4 md:p-6 group-hover:shadow-2xl transition-shadow duration-500">
-                                <div className="relative w-full h-full overflow-hidden rounded-[24px]">
+                            <div className="rounded-[40px] bg-white shadow-xl shadow-gray-200/50 shrink-0 p-4 md:p-6 group-hover:shadow-2xl transition-shadow duration-500">
+                                <div className="relative w-full aspect-16/10 overflow-hidden rounded-[24px]">
                                     <Image
                                         src={project.image}
                                         alt={project.title}
@@ -299,8 +299,8 @@ export default function ProjectsSection() {
                                 onClick={() => openModal(project)}
                                 className="lab-project-card group relative flex flex-col space-y-8 cursor-pointer"
                             >
-                                <div className="relative aspect-16/10 rounded-[30px] bg-white shadow-lg p-4 md:p-5 group-hover:shadow-xl transition-all duration-500">
-                                    <div className="relative w-full h-full overflow-hidden rounded-[20px]">
+                                <div className="rounded-[30px] bg-white shadow-lg p-4 md:p-5 group-hover:shadow-xl transition-all duration-500">
+                                    <div className="relative w-full aspect-16/10 overflow-hidden rounded-[20px]">
                                         <Image 
                                             src={project.image} 
                                             alt={project.title} 
@@ -366,8 +366,8 @@ export default function ProjectsSection() {
                         <div className="w-full p-6 md:p-14 lg:p-20 space-y-12 md:space-y-20">
 
                             {/* Image on Top (Stacked Padded Container) */}
-                            <div className="w-full aspect-16/10 relative rounded-[40px] bg-white shadow-2xl p-6 md:p-10 flex items-center justify-center">
-                                <div className="relative w-full h-full">
+                            <div className="w-full rounded-[40px] bg-white shadow-2xl p-6 md:p-10 flex items-center justify-center">
+                                <div className="relative w-full aspect-16/10">
                                     <Image
                                         src={activeProject.image}
                                         alt={activeProject.title}
