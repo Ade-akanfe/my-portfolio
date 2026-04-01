@@ -14,6 +14,18 @@ export default function AboutSection() {
     const aboutTextRef = useRef<HTMLDivElement>(null);
     const skillsTextRef = useRef<HTMLDivElement>(null);
 
+
+    const setScrollToContact = () => {
+        // this should take you to contact page in the landing page
+        const contactSection = document.getElementById("contact");
+        if (contactSection) {
+            contactSection.scrollIntoView({ behavior: "smooth" });
+        }
+
+
+
+    }
+
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         const section = sectionRef.current;
@@ -25,8 +37,8 @@ export default function AboutSection() {
         mm.add("(min-width: 1024px)", () => {
             gsap.set(img1Ref.current, { left: "42%", xPercent: -50, yPercent: -50, top: "58%", scale: 0.8, opacity: 1, position: "absolute" });
             gsap.set(img2Ref.current, { left: "58%", xPercent: -50, yPercent: -50, top: "58%", scale: 0.8, opacity: 1, position: "absolute" });
-            gsap.set(aboutTextRef.current, { left: "var(--text-left)", right: "0", top: "58%", x: 50, yPercent: -50, opacity: 0, position: "absolute" });
-            gsap.set(skillsTextRef.current, { left: "var(--text-left)", right: "0", top: "58%", x: 50, yPercent: -50, opacity: 0, position: "absolute" });
+            gsap.set(aboutTextRef.current, { left: "var(--text-left)", right: "0", top: "58%", x: 50, yPercent: -50, autoAlpha: 0, position: "absolute" });
+            gsap.set(skillsTextRef.current, { left: "var(--text-left)", right: "0", top: "58%", x: 50, yPercent: -50, autoAlpha: 0, position: "absolute" });
             gsap.set(badge1Ref.current, { scale: 0, opacity: 0 });
 
             const tl = gsap.timeline({
@@ -36,32 +48,32 @@ export default function AboutSection() {
             // Phase 1 — About EXPAND
             tl.to(img1Ref.current, { left: "0%", xPercent: 0, scale: 1, duration: 1, ease: "power2.out" }, 0)
                 .to(img2Ref.current, { opacity: 0, scale: 0.5, x: 50, duration: 0.6 }, 0)
-                .to(aboutTextRef.current, { x: 0, opacity: 1, duration: 1, ease: "power2.out" }, 0.2)
+                .to(aboutTextRef.current, { x: 0, autoAlpha: 1, duration: 1, ease: "power2.out" }, 0.2)
                 .to(badge1Ref.current, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.7)" }, 0.7);
 
             // Phase 2 — About COLLAPSE
             tl.to(img1Ref.current, { left: "42%", xPercent: -50, scale: 0.8, duration: 1, ease: "power2.inOut" }, 1.5)
                 .to(img2Ref.current, { left: "58%", opacity: 1, scale: 0.8, x: 0, duration: 0.8 }, 1.7)
-                .to(aboutTextRef.current, { x: 50, opacity: 0, duration: 0.7, ease: "power2.in" }, 1.5)
+                .to(aboutTextRef.current, { x: 50, autoAlpha: 0, duration: 0.7, ease: "power2.in" }, 1.5)
                 .to(badge1Ref.current, { scale: 0, opacity: 0, duration: 0.3 }, 1.5);
 
             // Phase 3 — Skills EXPAND
             tl.to(img2Ref.current, { left: "0%", xPercent: 0, scale: 1, opacity: 1, duration: 1, ease: "power2.out" }, 2.5)
                 .to(img1Ref.current, { opacity: 0, scale: 0.5, x: -50, duration: 0.6 }, 2.5)
-                .to(skillsTextRef.current, { x: 0, opacity: 1, duration: 1, ease: "power2.out" }, 2.7);
+                .to(skillsTextRef.current, { x: 0, autoAlpha: 1, duration: 1, ease: "power2.out" }, 2.7);
 
             // Phase 4 — Skills COLLAPSE
             tl.to(img2Ref.current, { left: "58%", xPercent: -50, scale: 0.8, duration: 1, ease: "power2.inOut" }, 3.8)
                 .to(img1Ref.current, { left: "42%", opacity: 1, xPercent: -50, scale: 0.8, x: 0, duration: 0.8 }, 4.0)
-                .to(skillsTextRef.current, { x: 50, opacity: 0, duration: 0.7, ease: "power2.in" }, 3.8);
+                .to(skillsTextRef.current, { x: 50, autoAlpha: 0, duration: 0.7, ease: "power2.in" }, 3.8);
         });
 
         // -- TABLET (iPad) --
         mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
             gsap.set(img1Ref.current, { left: "40%", xPercent: -50, yPercent: -50, top: "45%", scale: 0.7, opacity: 1, position: "absolute" });
             gsap.set(img2Ref.current, { left: "60%", xPercent: -50, yPercent: -50, top: "45%", scale: 0.7, opacity: 1, position: "absolute" });
-            gsap.set(aboutTextRef.current, { left: "50%", xPercent: -50, top: "75%", yPercent: -50, opacity: 0, textAlign: "center", position: "absolute" });
-            gsap.set(skillsTextRef.current, { left: "50%", xPercent: -50, top: "75%", yPercent: -50, opacity: 0, textAlign: "center", position: "absolute" });
+            gsap.set(aboutTextRef.current, { left: "50%", xPercent: -50, top: "75%", yPercent: -50, autoAlpha: 0, textAlign: "center", position: "absolute" });
+            gsap.set(skillsTextRef.current, { left: "50%", xPercent: -50, top: "75%", yPercent: -50, autoAlpha: 0, textAlign: "center", position: "absolute" });
 
             const tl = gsap.timeline({
                 scrollTrigger: { trigger: section, pin: true, scrub: 1.2, start: "top top", end: "+=400%" }
@@ -69,44 +81,44 @@ export default function AboutSection() {
 
             tl.to(img1Ref.current, { top: "35%", scale: 0.9, duration: 1 }, 0)
                 .to(img2Ref.current, { opacity: 0, scale: 0.5, duration: 0.5 }, 0)
-                .to(aboutTextRef.current, { opacity: 1, y: -20, duration: 0.8 }, 0.3);
+                .to(aboutTextRef.current, { autoAlpha: 1, y: -20, duration: 0.8 }, 0.3);
 
             tl.to(img1Ref.current, { top: "45%", scale: 0.7, duration: 1 }, 1.5)
                 .to(img2Ref.current, { opacity: 1, scale: 0.7, duration: 1 }, 1.5)
-                .to(aboutTextRef.current, { opacity: 0, y: 0, duration: 0.5 }, 1.5);
+                .to(aboutTextRef.current, { autoAlpha: 0, y: 0, duration: 0.5 }, 1.5);
 
             tl.to(img2Ref.current, { top: "35%", scale: 0.9, duration: 1 }, 2.5)
                 .to(img1Ref.current, { opacity: 0, scale: 0.5, duration: 0.5 }, 2.5)
-                .to(skillsTextRef.current, { opacity: 1, y: -20, duration: 0.8 }, 2.8);
+                .to(skillsTextRef.current, { autoAlpha: 1, y: -20, duration: 0.8 }, 2.8);
 
             tl.to(img2Ref.current, { top: "45%", scale: 0.7, duration: 1 }, 3.8)
                 .to(img1Ref.current, { opacity: 1, scale: 0.7, duration: 1 }, 3.8)
-                .to(skillsTextRef.current, { opacity: 0, y: 0, duration: 0.5 }, 3.8);
+                .to(skillsTextRef.current, { autoAlpha: 0, y: 0, duration: 0.5 }, 3.8);
         });
 
         // -- MOBILE ANIMATION (Stacked, Normal Scroll) --
         mm.add("(max-width: 767px)", () => {
             // Strip absolute positioning constraints to let flexbox stack them
-            gsap.set([img1Ref.current, aboutTextRef.current, img2Ref.current, skillsTextRef.current, badge1Ref.current], { 
-                clearProps: "all" 
+            gsap.set([img1Ref.current, aboutTextRef.current, img2Ref.current, skillsTextRef.current, badge1Ref.current], {
+                clearProps: "all"
             });
 
             // Smooth fade-up as user scrolls normally down the page
-            gsap.from(img1Ref.current, { 
-                scrollTrigger: { trigger: img1Ref.current, start: "top 85%" }, 
-                y: 40, opacity: 0, duration: 0.8, ease: "power2.out" 
+            gsap.from(img1Ref.current, {
+                scrollTrigger: { trigger: img1Ref.current, start: "top 85%" },
+                y: 40, opacity: 0, duration: 0.8, ease: "power2.out"
             });
-            gsap.from(aboutTextRef.current, { 
-                scrollTrigger: { trigger: aboutTextRef.current, start: "top 85%" }, 
-                y: 40, opacity: 0, duration: 0.8, ease: "power2.out" 
+            gsap.from(aboutTextRef.current, {
+                scrollTrigger: { trigger: aboutTextRef.current, start: "top 85%" },
+                y: 40, opacity: 0, duration: 0.8, ease: "power2.out"
             });
-            gsap.from(img2Ref.current, { 
-                scrollTrigger: { trigger: img2Ref.current, start: "top 85%" }, 
-                y: 40, opacity: 0, duration: 0.8, ease: "power2.out" 
+            gsap.from(img2Ref.current, {
+                scrollTrigger: { trigger: img2Ref.current, start: "top 85%" },
+                y: 40, opacity: 0, duration: 0.8, ease: "power2.out"
             });
-            gsap.from(skillsTextRef.current, { 
-                scrollTrigger: { trigger: skillsTextRef.current, start: "top 85%" }, 
-                y: 40, opacity: 0, duration: 0.8, ease: "power2.out" 
+            gsap.from(skillsTextRef.current, {
+                scrollTrigger: { trigger: skillsTextRef.current, start: "top 85%" },
+                y: 40, opacity: 0, duration: 0.8, ease: "power2.out"
             });
         });
 
@@ -157,7 +169,7 @@ export default function AboutSection() {
                 {/* ────── Image 1 — About ────────────────────────── */}
                 <div
                     ref={img1Ref}
-                    className="relative md:absolute mx-auto md:mx-0 shrink-0 w-[240px] md:w-[var(--img-w)]"
+                    className="relative md:absolute mx-auto md:mx-0 shrink-0 w-[240px] md:w-(--img-w)"
                 >
                     {/* Rotating gradient ring */}
                     <div
@@ -225,7 +237,7 @@ export default function AboutSection() {
                     <div className="flex flex-wrap gap-4 md:gap-10 pt-4 md:pt-8 border-t border-gray-100 md:border-gray-200">
                         {[
                             { value: "4+", label: "Years Exp" },
-                            { value: "24", label: "Projects" },
+                            { value: "10+", label: "Projects" },
                             { value: "30%", label: "Eficiency Boost" },
                         ].map(s => (
                             <div key={s.label} className="flex flex-col">
@@ -236,19 +248,19 @@ export default function AboutSection() {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-2">
-                        <button className="bg-[#0b6b3a] hover:bg-[#074d29] text-white font-bold px-6 md:px-10 py-4 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-green-900/40 text-[15px] md:text-sm">
+                        <button onClick={setScrollToContact} className="cursor-pointer bg-[#0b6b3a] hover:bg-[#074d29] text-white font-bold px-6 md:px-10 py-4 rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-green-900/40 text-[15px] md:text-sm">
                             Work With Me
                         </button>
-                        <button className="bg-white hover:bg-gray-50 text-gray-800 font-bold px-6 md:px-10 py-4 rounded-2xl border border-gray-200 transition-all text-[15px] md:text-sm">
+                        <a href="/docs/ade-akanfe.pdf" target="_blank" rel="noopener noreferrer" className="inline-block text-center cursor-pointer bg-white hover:bg-gray-50 text-gray-800 font-bold px-6 md:px-10 py-4 rounded-2xl border border-gray-200 transition-all text-[15px] md:text-sm">
                             View Resume
-                        </button>
+                        </a>
                     </div>
                 </div>
 
                 {/* ────── Image 2 — Skills (removed mt-10 so gap manages spacing) ────────────────────────── */}
                 <div
                     ref={img2Ref}
-                    className="relative md:absolute mx-auto md:mx-0 shrink-0 w-[240px] md:w-[var(--img-w)]"
+                    className="relative md:absolute mx-auto md:mx-0 shrink-0 w-[240px] md:w-(--img-w)"
                 >
                     <div
                         className="portrait-float relative rounded-[32px] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] w-full"
@@ -260,6 +272,7 @@ export default function AboutSection() {
                             fill
                             className="object-cover object-top scale-110"
                             priority
+                            sizes="(max-width: 1024px) 100vw, 50vw"
                         />
                         <div className="absolute inset-0 bg-linear-to-t from-orange-400/20 via-transparent to-transparent pointer-events-none" />
                     </div>

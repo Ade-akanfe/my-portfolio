@@ -235,7 +235,7 @@ export default function Navbar() {
                 <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100">
                     <div className="bg-[#0b6b3a] text-white font-bold px-5 py-2.5 rounded-full flex items-center gap-2 text-sm tracking-wide">
                         <div className="w-2.5 h-2.5 rounded-full animate-pulse-color"></div>
-                        ADE
+                        Demo
                     </div>
                     <button
                         onClick={() => setDrawerOpen(false)}

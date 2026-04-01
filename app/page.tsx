@@ -8,9 +8,9 @@ import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#fcf8ef] font-sans">
+    <div className="min-h-screen bg-[#fcf8ef] font-sans w-full overflow-hidden">
       <Navbar />
-      <main className="w-full">
+      <main className="w-full ">
         <HeroClient />
         <AboutSection />
         <ProjectsSection />

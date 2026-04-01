@@ -196,7 +196,7 @@ export default function ProjectsSection() {
     const closeModal = () => {
         const overlay = document.querySelector(".modal-overlay");
         const content = document.querySelector(".modal-content");
-        
+
         if (overlay && content) {
             gsap.to(content, { y: 50, opacity: 0, duration: 0.3, ease: "power3.in" });
             gsap.to(overlay, {
@@ -249,6 +249,7 @@ export default function ProjectsSection() {
                                         src={project.image}
                                         alt={project.title}
                                         fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
                                         priority={i < 2}
                                         className="object-cover object-top transition-transform duration-700 group-hover:scale-110"
                                     />
@@ -301,13 +302,13 @@ export default function ProjectsSection() {
                             >
                                 <div className="rounded-[30px] bg-white shadow-lg p-4 md:p-5 group-hover:shadow-xl transition-all duration-500">
                                     <div className="relative w-full aspect-16/10 overflow-hidden rounded-[20px]">
-                                        <Image 
-                                            src={project.image} 
-                                            alt={project.title} 
-                                            fill 
-                                            className="object-cover object-top" 
+                                        <Image
+                                            src={project.image}
+                                            alt={project.title}
+                                            fill
+                                            className="object-cover object-top"
                                         />
-                                        
+
                                         {/* Active Status Badge */}
                                         {project.status && (
                                             <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md text-[10px] font-black px-4 py-2 rounded-full text-gray-900 shadow-xl border border-gray-100 uppercase tracking-widest flex items-center gap-2">
@@ -326,7 +327,7 @@ export default function ProjectsSection() {
                                         <h4 className="text-xl md:text-2xl font-black text-gray-800 tracking-tight">{project.title}</h4>
                                     </div>
                                     <p className="text-gray-500 text-sm md:text-lg leading-relaxed">{project.description}</p>
-                                    
+
                                     <div className="flex flex-wrap gap-2 pt-2">
                                         {project.tech.map(t => (
                                             <span key={t} className="text-[8px] md:text-[9px] font-bold text-gray-300 border border-gray-100/50 px-2.5 py-1 rounded-md uppercase tracking-wider">
