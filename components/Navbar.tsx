@@ -248,7 +248,7 @@ export default function Navbar() {
                     </button>
                 </div>
 
-                <nav className="flex-1 px-6 py-6 flex flex-col gap-0 overflow-y-auto">
+                <nav className="flex-1 px-6 py-6 flex flex-col gap-0 overflow-y-auto justify-evenly">
                     {[
                         { icon: "👤", label: "About Me", id: "about" },
                         { icon: "📩", label: "Contact Me", id: "contact" },

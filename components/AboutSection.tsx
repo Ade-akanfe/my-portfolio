@@ -221,7 +221,7 @@ export default function AboutSection() {
                 >
                     <div className="space-y-4 md:space-y-6 text-gray-600 leading-relaxed text-[15px] md:text-lg">
                         <p>
-                            My name is <span className="font-bold text-gray-900 border-b-2 border-green-200">Ade-akanfe Ademola</span>, a software engineer specialized in crafting high-performance, accessible web
+                            My name is <span className="font-bold text-gray-900 border-b-2 border-green-200">Ade-Akanfe Ademola</span>, a software engineer specialized in crafting high-performance, accessible web
                             experiences. My toolkit revolves around <span className="font-bold text-gray-900 border-b-2 border-green-200">Next.js, Node.js, and TypeScript</span>.
                         </p>
                         <p>
